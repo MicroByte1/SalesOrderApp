@@ -1,0 +1,58 @@
+@model ProfileViewModel
+
+
+<form class="mx-1 mx-md-4" asp-action="Profile" enctype="multipart/form-data">
+                <h2>length : @Model.piclength</h2>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    @if(Model.Picture == null){
+                        <img src="~/Images/EmptyPic.png" alt="" id="imgview" style="max-width: 20%;">
+                    }else{
+                        <img src="data:image/*;base64,@(Convert.ToBase64String(Model.Picture))" alt="@Model.Picture" id="imgview" style="max-width: 20%;">
+                    }
+                    
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="file" 
+                        accept="image/*"
+                        onchange="fun1(this)"
+                       name="ProfilePic" class="form-control" />
+                      <label class="form-label" for="form3Example1c" asp-for="@Model.Picture"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" asp-for="@Model.Name" class="form-control" />
+                      <label class="form-label" for="form3Example1c" asp-for="@Model.Name"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example4c" asp-for="@Model.Location" class="form-control" />
+                      <label class="form-label" for="form3Example4c" asp-for="@Model.Location"></label>
+                    </div>
+                  </div>
+                    <h2>Contacts</h2>
+                  @if(Model.Contacts != null){
+                    foreach (var item in Model.Contacts){
+                        <h3>@item.Email  ---  @item.Phone</h3>
+                    }
+                  }
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Update Profile</button>
+                  </div>
+
+</form>
+
+
+@section Scripts{
+    <script>
+        function fun1(txt){
+            document.getElementById("imgview").src = window.URL.createObjectURL(txt.files[0]);
+        }
+    </script>
+} 

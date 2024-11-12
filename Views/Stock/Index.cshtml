@@ -1,0 +1,27 @@
+@model List<Stock>
+
+<table class="table table-dark table-striped"> 
+<head>
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+</head>
+
+<body>
+    @foreach(var item in Model){
+        <tr>
+            <th>@item.Product.Name</th>
+            <th>@item.Product.Number</th>
+            <th>@item.Quantity</th>
+            <th>@item.Product.Price</th>
+            <th><a asp-action="EditProduct" asp-route-id="@item.productId">Edit</a></th>
+            <th><a asp-action="UpdateProduct" asp-route-id="@item.productId">Update Quantity</a></th>
+        </tr>
+    }   
+
+</body>
+</table>

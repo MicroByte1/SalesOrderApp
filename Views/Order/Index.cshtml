@@ -1,0 +1,35 @@
+@model List<Order>
+
+<form asp-action="Index">
+            <label>Search by OrderNumber or Userid</label>
+            <input type="text" name="searchVal">
+            <button type="submit" class="btn"><i class="fa fa-search"></i> Search</button>
+</form>
+
+<table class="table table-dark table-striped"> 
+<head>
+    <tr>
+        <th>Number</th>
+        <th>UserId</th>
+        <th>Date</th>
+        <th>State</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+    </tr>
+</head>
+
+<body>
+    @foreach(var item in Model){
+        <tr>
+            <th>@item.Number</th>
+            <th>@item.UserId</th>
+            <th>@item.Date</th>
+            <th>@item.Status</th>
+            <th>@item.Total</th>
+            <th><a asp-action="Details" asp-route-id="@item.Id">Details</a></th>
+            
+        </tr>
+    }   
+
+</body>
+</table>

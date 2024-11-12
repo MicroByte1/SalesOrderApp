@@ -1,0 +1,46 @@
+@model Order
+
+
+ <div class="col-md-5 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width:">
+                <div class="row g-0">
+                    <div class="card text-white bg-primary mb-3" style="max-width: 22rem;">
+                        <div class="card-header">Order Number : @Model.Number</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Date : @Model.Date</h5>
+                                <h5 class="card-title">State : @Model.Status</h5>
+                                
+
+
+                                <table class="table table-dark table-striped"> 
+<head>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+</head>
+
+<body>
+    @foreach(var item in Model.OrderItems){
+        <tr>
+            <th>@item.Product.Name</th>
+            <th>@item.Product.Price</th>
+            <th>@item.Quantity</th>
+            <th>@(item.SalePrice * item.Quantity)</th>
+        </tr>
+    }   
+
+</body>
+</table>
+                                <h5 class="card-title">TotalPrice : @Model.Total</h5>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+<a asp-action="Index" type="button" class="btn btn-outline-success">Back To Order List</a>

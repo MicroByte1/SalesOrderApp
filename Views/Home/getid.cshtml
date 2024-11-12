@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: calc(33% - 40px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-title {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product-price {
+            color: #888;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1" class="product-img">
+                <h2 class="product-title">Product 1</h2>
+                <p class="product-price">$19.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2" class="product-img">
+                <h2 class="product-title">Product 2</h2>
+                <p class="product-price">$29.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product3.jpg" alt="Product 3" class="product-img">
+                <h2 class="product-title">Product 3</h2>
+                <p class="product-price">$39.99</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@model Product
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Create a new movie</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="EditProduct">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="@Model.Name" ></label>
+                                <input asp-for="@Model.Name" class="form-cotrol">
+                            </div>
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="@Model.Number" ></label>
+                                <input asp-for="@Model.Number" class="form-cotrol">
+                            </div>
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="@Model.Price" ></label>
+                                <input asp-for="@Model.Price" class="form-cotrol">
+                            </div>
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <label asp-for="@Model.Type" ></label>
+                                <select asp-for="@Model.Type" asp-items="Html.GetEnumSelectList<ProductType>()" class="form-cotrol"></select>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
